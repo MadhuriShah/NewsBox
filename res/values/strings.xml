@@ -4,7 +4,8 @@
     <string name="app_name">NewsBox</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-	<string-array name="ListItem">
+
+    <string-array name="ListItem">
         <item>Tech</item>
         <item>Business</item>
         <item>Sports</item>
@@ -14,4 +15,7 @@
         <item>Life and Style</item>
         <item>Beauty</item>
     </string-array>
+
+    <string name="title_activity_news_list">NewsList</string>
+
 </resources>
