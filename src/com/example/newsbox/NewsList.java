@@ -11,9 +11,9 @@ public class NewsList extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_news_list);
-		String category = getIntent().getStringExtra("category");
+		String category = getIntent().getStringExtra("category");//Listview item selected in previous activity
 		 tv=(TextView)findViewById(R.id.sample);
-		 tv.setText(category);
+		 tv.setText(category);//Listview selected item
 		}
 
 	@Override

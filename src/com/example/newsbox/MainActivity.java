@@ -23,10 +23,10 @@ public class MainActivity extends Activity {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
-				 Intent i=new Intent(getApplicationContext(),NewsList.class);
-				 String category=(String) parent.getItemAtPosition(position);
-		          i.putExtra("category",category);  
-		            startActivity(i);
+				 Intent i=new Intent(getApplicationContext(),NewsList.class);// switch from mainactivity to newsList activity
+				 String category=(String) parent.getItemAtPosition(position);//selected Item at particular position
+		          i.putExtra("category",category);  //category variable containing the selected value and category to be used in next activity
+		            startActivity(i);//switching to NewsList activity
 				
 			}                
         	
