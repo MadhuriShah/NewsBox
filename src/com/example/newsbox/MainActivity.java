@@ -24,7 +24,8 @@ public class MainActivity extends Activity {
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
 				 Intent i=new Intent(getApplicationContext(),NewsList.class);
-		            i.putExtra("UserId","Madhuri");  
+				 String category=(String) parent.getItemAtPosition(position);
+		          i.putExtra("category",category);  
 		            startActivity(i);
 				
 			}                

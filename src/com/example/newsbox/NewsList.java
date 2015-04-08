@@ -11,9 +11,9 @@ public class NewsList extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_news_list);
-		String UserId = getIntent().getStringExtra("UserId");
+		String category = getIntent().getStringExtra("category");
 		 tv=(TextView)findViewById(R.id.sample);
-		 tv.setText(UserId);
+		 tv.setText(category);
 		}
 
 	@Override
