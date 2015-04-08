@@ -1,4 +1,6 @@
 package com.example.newsbox;
+
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -7,6 +9,7 @@ import android.widget.TextView;
 
 public class NewsList extends Activity {
 	private TextView tv;
+	private String url="http://timesofindia.indiatimes.com/feeds/newsdefaultfeeds.cms?feedtype=sjson";
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -14,6 +17,8 @@ public class NewsList extends Activity {
 		String category = getIntent().getStringExtra("category");//Listview item selected in previous activity
 		 tv=(TextView)findViewById(R.id.sample);
 		 tv.setText(category);//Listview selected item
+		 Service sh = new Service();
+		 String jsonStr = sh.newsCall(url);
 		}
 
 	@Override
