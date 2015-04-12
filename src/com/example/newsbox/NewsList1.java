@@ -34,7 +34,13 @@ public class NewsList1 extends ListActivity {
 			super.onCreate(savedInstanceState);
 			setContentView(R.layout.activity_news_list);
 			catNews = new ArrayList<HashMap<String, String>>();
-			 //String UserId = getIntent().getStringExtra("UserId");
+			 String category = getIntent().getStringExtra("category");
+			 if(category.equalsIgnoreCase("Tech")){
+				 url="http://timesofindia.indiatimes.com/feeds/newsfeed/31926882.cms?feedtype=sjson";
+			 }
+			 else {
+				 url="http://timesofindia.indiatimes.com/feeds/newsfeed/4719148.cms?feedtype=sjson";
+			 }
 			//tv=(TextView)findViewById(R.id.textView2);
 			//tv.setText(UserId);
 			 mylistView2=getListView();	
