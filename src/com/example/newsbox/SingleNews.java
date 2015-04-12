@@ -8,15 +8,19 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 public class SingleNews extends Activity {
-	private TextView tv;
+	private TextView tv,tv2;
+	private static final String headlines = "HeadLine";
+	private static final String Story = "Story";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_single_news);
 		Intent in = getIntent();
-		tv=(TextView)findViewById(R.id.textView2);
-		tv.setText(in.getStringExtra("hello"));
+		tv=(TextView)findViewById(R.id.headlineText);
+		tv.setText(in.getStringExtra(headlines));
+		tv2=(TextView)findViewById(R.id.storyText);
+		tv2.setText(in.getStringExtra(Story));
 		
 		
 	}

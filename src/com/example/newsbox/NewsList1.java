@@ -45,7 +45,11 @@ public class NewsList1 extends ListActivity {
 						int position, long id) {
 					// TODO Auto-generated method stub
 					Intent in = new Intent(getApplicationContext(),SingleNews.class);
-					in.putExtra("hello", "hello");
+					//in.putExtra("hello", "hello");
+					String headline1 = ((TextView) view.findViewById(R.id.headlineTextView)).getText().toString();
+					String story1 = ((TextView) view.findViewById(R.id.storyTextView)).getText().toString();	
+					in.putExtra(headline, headline1);
+					in.putExtra(story, story1);
 					startActivity(in);
 					
 				}
