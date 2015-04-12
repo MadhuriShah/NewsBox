@@ -20,7 +20,8 @@ public class NewsList1 extends ListActivity {
 	private String url="http://timesofindia.indiatimes.com/feeds/newsdefaultfeeds.cms?feedtype=sjson";
 	private static final String newsArray = "NewsItem";
 	private static final String headline= "HeadLine";
-	private static final String date = "DateLine";
+	//private static final String date = "DateLine";
+	private static final String story = "Story";
 	JSONArray news;
 	ArrayList<HashMap<String, String>> catNews;
 		@Override
@@ -49,7 +50,7 @@ public class NewsList1 extends ListActivity {
 						// looping through All news
 						for (int i = 0; i < news.length(); i++) {
 							JSONObject c = news.getJSONObject(i);
-							String date2 = c.getString(date);
+							String story2 = c.getString(story);
 							String headline2= c.getString(headline);
 							// hashmap for singlen news
 							Log.d("hash", "map1");
@@ -57,7 +58,7 @@ public class NewsList1 extends ListActivity {
 							Log.d("hash", "map");
 							singleNews.put(headline, headline2);
 							Log.d("hash", "map2");
-							singleNews.put(date, date2);
+							singleNews.put(story, story2);
 							catNews.add(singleNews);
 							Log.d("hash", "map3");
 				}
@@ -76,7 +77,7 @@ public class NewsList1 extends ListActivity {
 		super.onPostExecute(result);
 		// populating listview with json data
 		ListAdapter adapter = new SimpleAdapter(NewsList1.this, catNews,
-		R.layout.listitem, new String[] {headline, date}, new int[] { R.id.headlineTextView,R.id.dateTextView });
+		R.layout.listitem, new String[] {headline, story}, new int[] { R.id.headlineTextView,R.id.dateTextView });
 		setListAdapter(adapter);
 				
 			}
