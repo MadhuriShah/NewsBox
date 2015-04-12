@@ -38,7 +38,19 @@ public class NewsList1 extends ListActivity {
 			//tv=(TextView)findViewById(R.id.textView2);
 			//tv.setText(UserId);
 			 mylistView2=getListView();	
-				 new GetNews().execute();	 
+			 mylistView2.setOnItemClickListener(new OnItemClickListener() {
+
+				@Override
+				public void onItemClick(AdapterView<?> parent, View view,
+						int position, long id) {
+					// TODO Auto-generated method stub
+					Intent in = new Intent(getApplicationContext(),SingleNews.class);
+					startActivity(in);
+					
+				}
+				 
+			 });
+			 new GetNews().execute();	 
 					
 	
 		}
