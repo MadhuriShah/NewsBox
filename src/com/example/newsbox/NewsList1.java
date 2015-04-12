@@ -15,7 +15,7 @@ import android.widget.TextView;
 
 
 public class NewsList1 extends ListActivity {
-	private TextView tv;
+	//private TextView tv;
 	private ListView mylistView2;
 	private String url="http://timesofindia.indiatimes.com/feeds/newsdefaultfeeds.cms?feedtype=sjson";
 	private static final String newsArray = "NewsItem";
@@ -28,9 +28,9 @@ public class NewsList1 extends ListActivity {
 			super.onCreate(savedInstanceState);
 			setContentView(R.layout.activity_news_list);
 			catNews = new ArrayList<HashMap<String, String>>();
-			 String UserId = getIntent().getStringExtra("UserId");
-			tv=(TextView)findViewById(R.id.textView2);
-			tv.setText(UserId);
+			 //String UserId = getIntent().getStringExtra("UserId");
+			//tv=(TextView)findViewById(R.id.textView2);
+			//tv.setText(UserId);
 			 mylistView2=getListView();		
 			 new GetNews().execute();	 
 		}
