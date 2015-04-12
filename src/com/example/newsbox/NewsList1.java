@@ -45,6 +45,7 @@ public class NewsList1 extends ListActivity {
 						int position, long id) {
 					// TODO Auto-generated method stub
 					Intent in = new Intent(getApplicationContext(),SingleNews.class);
+					in.putExtra("hello", "hello");
 					startActivity(in);
 					
 				}
