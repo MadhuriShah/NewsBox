@@ -5,9 +5,13 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import android.app.ListActivity;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
@@ -33,8 +37,10 @@ public class NewsList1 extends ListActivity {
 			 //String UserId = getIntent().getStringExtra("UserId");
 			//tv=(TextView)findViewById(R.id.textView2);
 			//tv.setText(UserId);
-			 mylistView2=getListView();		
-			 new GetNews().execute();	 
+			 mylistView2=getListView();	
+				 new GetNews().execute();	 
+					
+	
 		}
 		
 	private class GetNews extends AsyncTask<Void, Void, Void> {
