@@ -47,7 +47,9 @@ public class NewsList1 extends ListActivity {
 			 else if (category.equalsIgnoreCase("Science")) {
 				 url="http://timesofindia.indiatimes.com/feeds/newsfeeddf/-2128672765.cms?feedtype=sjson";
 			 }
-			 
+			 else if (category.equalsIgnoreCase("World")) {
+				 url="http://timesofindia.indiatimes.com/feeds/newsfeed/296589292.cms?feedtype=sjson";
+			 }
 			//tv=(TextView)findViewById(R.id.textView2);
 			//tv.setText(UserId);
 			 mylistView2=getListView();	
