@@ -38,8 +38,8 @@ public class NewsList1 extends ListActivity {
 			 if(category.equalsIgnoreCase("Tech")){
 				 url="http://timesofindia.indiatimes.com/feeds/newsfeed/31926882.cms?feedtype=sjson";
 			 }
-			 else {
-				 url="http://timesofindia.indiatimes.com/feeds/newsfeed/4719148.cms?feedtype=sjson";
+			 else if (category.equalsIgnoreCase("Business")) {
+				 url="http://timesofindia.indiatimes.com/feeds/newsfeeddf/-2128680634.cms?feedtype=sjson";
 			 }
 			//tv=(TextView)findViewById(R.id.textView2);
 			//tv.setText(UserId);
