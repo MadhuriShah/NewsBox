@@ -17,5 +17,7 @@
     </string-array>
 
     <string name="title_activity_news_list">NewsList</string>
+    <string name="title_activity_single_news">SingleNews</string>
+    <string name="title_activity_news_list1">NewsList1</string>
 
 </resources>

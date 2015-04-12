@@ -8,6 +8,8 @@
         android:minSdkVersion="18"
         android:targetSdkVersion="18" />
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
@@ -23,8 +25,16 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".NewsList"
+            android:name=".NewsList1"
             android:label="@string/title_activity_news_list" >
+        </activity>
+        <activity
+            android:name=".SingleNews"
+            android:label="@string/title_activity_single_news" >
+        </activity>
+        <activity
+            android:name=".NewsList1"
+            android:label="@string/title_activity_news_list1" >
         </activity>
     </application>
 
