@@ -13,8 +13,7 @@
         android:id="@+id/list1"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:textColor="#E667AF"
-        android:entries="@array/ListItem" >
+                android:entries="@array/ListItem" >
     </ListView>
 
 </LinearLayout>
