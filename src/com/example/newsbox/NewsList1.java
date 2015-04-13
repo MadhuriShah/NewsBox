@@ -101,7 +101,6 @@ public class NewsList1 extends ListActivity {
 							String story2 = c.getString(story);
 							String headline2= c.getString(headline);
 							String byline2=c.getString(caption);
-							// hashmap for singlen news
 							Log.d("hash", "map1");
 							HashMap<String, String> singleNews = new HashMap<String, String>();
 							Log.d("hash", "map");
@@ -127,7 +126,8 @@ public class NewsList1 extends ListActivity {
 		super.onPostExecute(result);
 		// populating listview with json data
 		ListAdapter adapter = new SimpleAdapter(NewsList1.this, catNews,
-		R.layout.listitem, new String[] {headline,caption, story}, new int[] { R.id.headlineTextView,R.id.dateTextView,R.id.storyTextView });
+		R.layout.listitem, new String[] {headline,caption, story}, 
+		new int[] { R.id.headlineTextView,R.id.dateTextView,R.id.storyTextView }); // uses listitem textview and populates data in it
 		setListAdapter(adapter);
 				
 			}

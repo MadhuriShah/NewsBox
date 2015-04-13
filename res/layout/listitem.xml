@@ -19,7 +19,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:paddingBottom="2dip"
-        android:textColor="#acacac" />
+        android:textColor="#808080" />
 
 <TextView
         android:id="@+id/storyTextView"
