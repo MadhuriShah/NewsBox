@@ -1,10 +1,13 @@
 package com.example.newsbox;
 import java.util.ArrayList;
 import java.util.HashMap;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import android.app.ListActivity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -21,6 +24,7 @@ import android.widget.TextView;
 public class NewsList1 extends ListActivity {
 	//private TextView tv;
 	private ListView mylistView2;
+	private ProgressDialog dialog;
 	private String url="http://timesofindia.indiatimes.com/feeds/newsdefaultfeeds.cms?feedtype=sjson";
 	private static final String newsArray = "NewsItem";
 	private static final String headline= "HeadLine";
@@ -85,7 +89,17 @@ public class NewsList1 extends ListActivity {
 		}
 		
 	private class GetNews extends AsyncTask<Void, Void, Void> {
-			@Override
+		@Override
+		protected void onPreExecute() {
+			super.onPreExecute();
+			//displaying progress dialog
+			dialog = new ProgressDialog(NewsList1.this);
+			dialog.setMessage("Please wait...");
+			dialog.setCancelable(false);
+			dialog.show();
+
+		}
+		@Override
 	protected Void doInBackground(Void... arg0) {
 		Service sh = new Service();
 		String jsonStr = sh.newsCall(url);
@@ -124,6 +138,8 @@ public class NewsList1 extends ListActivity {
 			}
 	protected void onPostExecute(Void result) {
 		super.onPostExecute(result);
+		if (dialog.isShowing())
+			dialog.dismiss();
 		// populating listview with json data
 		ListAdapter adapter = new SimpleAdapter(NewsList1.this, catNews,
 		R.layout.listitem, new String[] {headline,caption, story}, 
