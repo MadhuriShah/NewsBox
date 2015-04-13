@@ -21,7 +21,7 @@ import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
 
-public class NewsList1 extends ListActivity {
+public class NewsList extends ListActivity {
 	//private TextView tv;
 	private ListView mylistView2;
 	private ProgressDialog dialog;
@@ -93,7 +93,7 @@ public class NewsList1 extends ListActivity {
 		protected void onPreExecute() {
 			super.onPreExecute();
 			//displaying progress dialog
-			dialog = new ProgressDialog(NewsList1.this);
+			dialog = new ProgressDialog(NewsList.this);
 			dialog.setMessage("Please wait...");
 			dialog.setCancelable(false);
 			dialog.show();
@@ -141,7 +141,7 @@ public class NewsList1 extends ListActivity {
 		if (dialog.isShowing())
 			dialog.dismiss();
 		// populating listview with json data
-		ListAdapter adapter = new SimpleAdapter(NewsList1.this, catNews,
+		ListAdapter adapter = new SimpleAdapter(NewsList.this, catNews,
 		R.layout.listitem, new String[] {headline,caption, story}, 
 		new int[] { R.id.headlineTextView,R.id.dateTextView,R.id.storyTextView }); // uses listitem textview and populates data in it
 		setListAdapter(adapter);
