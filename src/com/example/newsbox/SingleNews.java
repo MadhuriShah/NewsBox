@@ -22,7 +22,8 @@ public class SingleNews extends Activity {
 		tv.setText(in.getStringExtra(headlines));
 		tv2=(TextView)findViewById(R.id.storyText);
 		tv2.setText(in.getStringExtra(Story));
-	
+		tv2.setMovementMethod(new ScrollingMovementMethod());
+		
 	}
 
 }
