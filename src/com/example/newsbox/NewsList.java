@@ -38,9 +38,10 @@ public class NewsList extends ListActivity {
 			super.onCreate(savedInstanceState);
 			setContentView(R.layout.activity_news_list);
 			catNews = new ArrayList<HashMap<String, String>>();
-			 String category = getIntent().getStringExtra("category");
+			 String category = getIntent().getStringExtra("category"); // gets selected category from main activity
+			 //url : as per category selected from previous activity
 			 if(category.equalsIgnoreCase("Tech")){
-				 url="http://timesofindia.indiatimes.com/feeds/newsfeed/31926882.cms?feedtype=sjson";
+				 url="http://timesofindia.indiatimes.com/feeds/newsfeed/31926882.cms?feedtype=sjson"; 
 			 }
 			 else if (category.equalsIgnoreCase("Business")) {
 				 url="http://timesofindia.indiatimes.com/feeds/newsfeeddf/-2128680634.cms?feedtype=sjson";
@@ -67,8 +68,7 @@ public class NewsList extends ListActivity {
 			//tv.setText(UserId);
 			 mylistView2=getListView();	
 			 mylistView2.setOnItemClickListener(new OnItemClickListener() {
-
-				@Override
+			  @Override
 				public void onItemClick(AdapterView<?> parent, View view,
 						int position, long id) {
 					// TODO Auto-generated method stub
@@ -76,14 +76,14 @@ public class NewsList extends ListActivity {
 					//in.putExtra("hello", "hello");
 					String headline1 = ((TextView) view.findViewById(R.id.headlineTextView)).getText().toString();
 					String story1 = ((TextView) view.findViewById(R.id.storyTextView)).getText().toString();	
-					in.putExtra(headline, headline1);
-					in.putExtra(story, story1);
-					startActivity(in);
+					in.putExtra(headline, headline1); // headline passed to singlenews activity
+					in.putExtra(story, story1); // story passed to singlenews activity
+					startActivity(in); // starts singlenews activity
 					
 				}
 				 
 			 });
-			 new GetNews().execute();	 
+			 new GetNews().execute();	 // executes asynch task 
 					
 	
 		}
@@ -97,14 +97,13 @@ public class NewsList extends ListActivity {
 			dialog.setMessage("Please wait...");
 			dialog.setCancelable(false);
 			dialog.show();
-
 		}
 		@Override
-	protected Void doInBackground(Void... arg0) {
-		Service sh = new Service();
-		String jsonStr = sh.newsCall(url);
-		Log.d("Response", ": " + jsonStr);
-		if (jsonStr != null) {
+		protected Void doInBackground(Void... arg0) {
+			Service sh = new Service();
+			String jsonStr = sh.newsCall(url);
+			Log.d("Response", ": " + jsonStr);
+			if (jsonStr != null) {
 			try {
 					JSONObject jsonObj = new JSONObject(jsonStr);
 						// Getting JSON Array node
@@ -115,15 +114,13 @@ public class NewsList extends ListActivity {
 							String story2 = c.getString(story);
 							String headline2= c.getString(headline);
 							String byline2=c.getString(caption);
-							Log.d("hash", "map1");
-							HashMap<String, String> singleNews = new HashMap<String, String>();
-							Log.d("hash", "map");
+							HashMap<String, String> singleNews = new HashMap<String, String>(); //stores individual news headline, capyion and story
 							singleNews.put(headline, headline2);
-							Log.d("hash", "map2");
+							//Log.d("hash", "map2");
 							singleNews.put(story, story2);
 							singleNews.put(caption, byline2);
-							catNews.add(singleNews);
-							Log.d("hash", "map3");
+							catNews.add(singleNews); // added single news to catnews array
+							//Log.d("hash", "map3");
 				}
 				} 
 			catch (JSONException e) {
@@ -138,7 +135,7 @@ public class NewsList extends ListActivity {
 			}
 	protected void onPostExecute(Void result) {
 		super.onPostExecute(result);
-		if (dialog.isShowing())
+		if (dialog.isShowing()) // if data is fetched then dismiss progress dialog
 			dialog.dismiss();
 		// populating listview with json data
 		ListAdapter adapter = new SimpleAdapter(NewsList.this, catNews,
