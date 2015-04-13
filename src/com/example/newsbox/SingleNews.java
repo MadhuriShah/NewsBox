@@ -19,9 +19,9 @@ public class SingleNews extends Activity {
 		setContentView(R.layout.activity_single_news);
 		Intent in = getIntent();
 		tv=(TextView)findViewById(R.id.headlineText);
-		tv.setText(in.getStringExtra(headlines));
+		tv.setText(in.getStringExtra(headlines)); //headlines from newslist activity
 		tv2=(TextView)findViewById(R.id.storyText);
-		tv2.setText(in.getStringExtra(Story));
+		tv2.setText(in.getStringExtra(Story));//story from newslist activity
 		tv2.setMovementMethod(new ScrollingMovementMethod());// makes textview scrollable
 		
 	}
